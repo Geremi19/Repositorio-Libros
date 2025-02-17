@@ -11,17 +11,46 @@ Proyecto para la busqueda de libros admiin e invitado
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Requisitos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- PHP >= 8.0
+- Composer
+- Laravel 10.x
+- Base de datos MySQL o similar
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+##Proyceto
+ Instala las dependencias del proyecto con Composer:
+   ```bash
+   composer install
+   ```
+
+
+Configura tu archivo `.env` para las credenciales de la base de datos y otras configuraciones necesarias:
+   ```bash
+   cp .env.example .env
+   ```
+
+Ir a phpmyadmin o a tu bd crear la bd 
+
+ Genera la clave de la aplicación:
+   ```bash
+   php artisan key:generate
+   ```
+
+Ejecuta las migraciones para crear las tablas en la base de datos:
+   ```bash
+   php artisan migrate
+   ```
+
+Inicia el servidor de desarrollo:
+   ```bash
+   php artisan serve
+   ```
+
+
+
+
+
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
