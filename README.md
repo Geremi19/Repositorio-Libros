@@ -47,6 +47,12 @@ Inicia el servidor de desarrollo:
    php artisan serve
    ```
 
+Entrar 
+libros/login
+
+admin ivan:123
+invitado Geremi:1234
+
 
 
 
