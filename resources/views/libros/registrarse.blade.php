@@ -42,7 +42,7 @@
                 <option value="1" {{ old('user_tipo') == '1' ? 'selected' : '' }}>Invitado</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
+        <button type="submit" class="btn btn-primary mt-4">Registrar</button>
     </form>
 </div>
 

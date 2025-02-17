@@ -87,6 +87,7 @@ class LibrosController extends Controller
 
     public function GenerarPDF(){
         $libros = Libros::all();
+        $user = auth()->user();
         $pdf = PDF::loadView('libros.pdf',compact('libros'));
         return $pdf->stream('reporte_libros.pdf');//abrir reporte
     }

@@ -8,46 +8,44 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
   <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" >Sistema</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-
-      @if($user->user_tipo == '0')
-
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/libros/crear">Crear</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/libros/leer">Leer</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/libros/eliminar">Eliminar</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ URL('/libros/registrarse') }}">Registrar Usuario</a>
-        </li>
-      @else
-
-        <li class="nav-item">
-          <a class="nav-link" href="/libros/consultar">Consultar por ID</a>
-        </li>
-      @endif
-        <li class="nav-item">
-          <form action="{{ route('logout') }}" method="POST">
-              @csrf
-              <button class="nav-link" type="submit">Cerrar sesión</button>
-          </form>
-      </li>
-        
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand">Sistema</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                @if(auth()->check() && auth()->user()->user_tipo == '0')
+                    <li class="nav-item">
+                        <a class="nav-link" href="/libros/crear">Crear</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/libros/leer">Leer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/libros/eliminar">Eliminar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ URL('/libros/registrarse') }}">Registrar Usuario</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="/libros/consultar">Consultar por ID</a>
+                    </li>
+                @endif
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                        @csrf
+                        <button class="nav-link btn btn-link" type="submit">Cerrar sesión</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
+
     <div class="container">
         @yield('content')
     </div>
