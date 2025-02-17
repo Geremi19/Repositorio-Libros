@@ -17,44 +17,52 @@ Proyecto para la busqueda de libros admiin e invitado
 - Composer
 - Laravel 10.x
 - Base de datos MySQL o similar
-
-##Proyceto
- Instala las dependencias del proyecto con Composer:
-   ```bash
+##poyecto
+1. Instalar las dependencias del proyecto con Composer:
+   Asegúrate de estar en el directorio raíz de tu proyecto Laravel y ejecutar:
    composer install
-   ```
+   Este comando instalará todas las dependencias necesarias que tu proyecto necesita, que están definidas en el archivo composer.json.
 
-
-Configura tu archivo `.env` para las credenciales de la base de datos y otras configuraciones necesarias:
-   ```bash
+2. Configurar el archivo .env para las credenciales de la base de datos y otras configuraciones:
+   Si el archivo .env no existe, puedes copiar el archivo de ejemplo (.env.example) a .env con el siguiente comando:
    cp .env.example .env
-   ```
+   Luego, abre el archivo .env y configura las credenciales de la base de datos (y otras configuraciones necesarias) de acuerdo con tu entorno. Los valores más importantes a revisar son los relacionados con la base de datos:
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=nombre_de_tu_base_de_datos
+   DB_USERNAME=tu_usuario
+   DB_PASSWORD=tu_contraseña
 
-Ir a phpmyadmin o a tu bd crear la bd 
+3. Crear la base de datos:
+   Si estás usando phpMyAdmin, crea una nueva base de datos con el nombre que hayas puesto en el archivo .env 
+   Si prefieres usar MySQL desde la terminal, ejecuta:
+   mysql -u root -p
+   CREATE DATABASE ;
 
- Genera la clave de la aplicación:
-   ```bash
+4. Generar la clave de la aplicación:
+   Ejecuta el siguiente comando para generar una nueva clave:
    php artisan key:generate
-   ```
+   Esto actualizará automáticamente la clave en el archivo .env.
 
-Ejecuta las migraciones para crear las tablas en la base de datos:
-   ```bash
+5. Ejecutar las migraciones para crear las tablas en la base de datos:
+   Una vez configurada la base de datos y generada la clave, ejecuta las migraciones con el siguiente comando:
    php artisan migrate
-   ```
+   
 
-Inicia el servidor de desarrollo:
-   ```bash
+6. Iniciar el servidor de desarrollo:
+   Para iniciar el servidor de desarrollo de Laravel, usa el siguiente comando:
    php artisan serve
-   ```
+   Esto iniciará un servidor en http://127.0.0.1:8000, o en otro puerto si ese está ocupado.
 
-Entrar 
-libros/login
-
-admin ivan:123
-invitado Geremi:1234
-
-
-
+7. Acceder a la aplicación:
+   Ahora puedes acceder a tu aplicación a través de tu navegador con las siguientes credenciales de usuario:
+   - Administrador (Admin):
+     Usuario: ivan
+     Contraseña: 123
+   - Invitado (Guest):
+     Usuario: Geremi
+     Contraseña: 1234
 
 
 
