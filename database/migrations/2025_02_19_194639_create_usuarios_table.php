@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('usuarios', function (Blueprint $table) {
-            $table->integer('id')->primary(); // Manteniendo el tipo int(11) como en la estructura original
+            $table->id(); // Manteniendo el tipo int(11) como en la estructura original
             $table->string('user_name', 50)->nullable();
             $table->string('user_pass', 255)->nullable();
             $table->char('user_tipo', 2)->nullable();
