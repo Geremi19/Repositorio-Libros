@@ -53,35 +53,43 @@ class LibrosController extends Controller
 
     //funcion para guardar los libros
     public function store(Request $request){
-        //validar los datos
+        // Validar los datos
         $request->validate([
-            'nombre'=>'required|string|max:255',
+            'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string|max:255',
-            'autor'=>'required|string|max:255',
-
+            'autor' => 'required|string|max:255',
         ]);
 
-        //crear libro y guarda los registros
-        $libro = new Libros();
-        $libro->nombre = $request->nombre;
-        $libro->descripcion = $request->descripcion;
-        $libro->autor = $request->autor;
+        try {
+            // Crear libro y guardar los registros
+            $libro = new Libros();
+            $libro->nombre = $request->nombre;
+            $libro->descripcion = $request->descripcion;
+            $libro->autor = $request->autor;
 
-        $libro->save();
+            $libro->save();
 
-        return redirect()->back()->with('success','Libro creado con exito!');
+            return redirect()->route('libros.crear')->with('success', 'Libro creado exitosamente.');
+        } catch (\Exception $e) {
+            // Manejo de errores
+            return back()->withErrors(provider: ['error' => 'Error al guardar el libro: ' . $e->getMessage()]);
+        }
 
     }
 
     
     public function destroy(Request $request){
-        $Id = $request->input('IdLibro');//recibir un valor de un input
+        // Obtener el ID del libro del formulario
+        $Id = $request->input('IdLibro'); 
         $libro = Libros::find($Id);
-        if($libro){
+
+        // Verificar si el libro existe
+        if ($libro) {
+            // Eliminar el libro
             $libro->delete();
-            return redirect()->back()->with('success','Libro borrado con exito!');
-        }else{
-            return redirect()->back()->with('error','Libro no encontrado');
+            return redirect()->back()->with('success', '¡Libro eliminado con éxito!');
+        } else {
+            return redirect()->back()->with('error', 'Libro no encontrado');
         }
     }
 

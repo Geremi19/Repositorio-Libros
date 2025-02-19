@@ -26,5 +26,8 @@ class usuarios extends Authenticatable
         return $this->user_pass;
     }
 
+    protected $primaryKey = 'id';
+    public $incrementing = true;
+    protected $keyType = 'int';
     public $timestamps = false;
 }
