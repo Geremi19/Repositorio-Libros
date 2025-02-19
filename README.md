@@ -17,6 +17,8 @@ Proyecto para la busqueda de libros admiin e invitado
 - Composer
 - Laravel 10.x
 - Base de datos MySQL o similar
+-xampp
+
 ##poyecto
 1. Instalar las dependencias del proyecto con Composer:
    Asegúrate de estar en el directorio raíz de tu proyecto Laravel y ejecutar:
