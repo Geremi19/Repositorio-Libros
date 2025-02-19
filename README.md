@@ -23,7 +23,6 @@ Proyecto para la busqueda de libros admiin e invitado
 1. Instalar las dependencias del proyecto con Composer:
    Asegúrate de estar en el directorio raíz de tu proyecto Laravel y ejecutar:
    composer install
-   Este comando instalará todas las dependencias necesarias que tu proyecto necesita, que están definidas en el archivo composer.json.
 
 2. Configurar el archivo .env para las credenciales de la base de datos y otras configuraciones:
    Si el archivo .env no existe, puedes copiar el archivo de ejemplo (.env.example) a .env con el siguiente comando:
@@ -59,13 +58,13 @@ Proyecto para la busqueda de libros admiin e invitado
 
 7. Acceder a la aplicación:
    Ahora puedes acceder a tu aplicación a través de tu navegador con las siguientes credenciales de usuario:
-   - Administrador (Admin):
-     Usuario: ivan
-     Contraseña: 123
-   - Invitado (Guest):
-     Usuario: Geremi
-     Contraseña: 1234
+   *para admin en la tabla usuarios inserta un usuario:
+-user_name: cualquier nombre que quieras
+-user_pass: la contraseña
+-user_tipo: 0 para admin , 1 para invitado.
 
+8.Para acceder al proyecto.
+....0.1:8000/login
 
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
